@@ -1,4 +1,3 @@
-local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 -- Set <space> as the leader key See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -41,16 +40,16 @@ vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true })
 vim.opt.breakindent = true
 
 -- Move text up and down
-keymap('v', '<A-j>', ':m .+1<CR>==', opts)
-keymap('v', '<A-k>', ':m .-2<CR>==', opts)
-keymap('v', 'p', '"_dP', opts)
+vim.api.nvim_set_keymap('v', '<A-j>', ':m .+1<CR>==', opts)
+vim.api.nvim_set_keymap('v', '<A-k>', ':m .-2<CR>==', opts)
+vim.api.nvim_set_keymap('v', 'p', '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
-keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
-keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
-keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
+vim.api.nvim_set_keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
+vim.api.nvim_set_keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
+vim.api.nvim_set_keymap('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
+vim.api.nvim_set_keymap('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
 
 -- Save undo history
 vim.opt.undofile = true
