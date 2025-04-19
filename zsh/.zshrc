@@ -36,8 +36,9 @@ bindkey '^ ' autosuggest-accept
 alias ll='ls -lAh --color=auto'
 alias rm='rm -i'
 alias mv='mv -i'
-alias cp='cp -i'
-alias cscrcpy='scrcpy --shortcut-mod=lalt,ralt -w --no-audio;sleep 2 && adbunlock'
+alias connectbt='~/personal/scripts/connectbt.sh';
+alias cscrcpy='scrcpy --shortcut-mod=lalt,ralt -w --no-audio;sleep 2 && adbunlock';
+alias restartwaybar='killall -SIGUSR2 waybar';
 #alias avm='emulator -avd android10 -cores 2 -no-snapshot-save -no-snapshot-load -no-boot-anim -no-metrics -no-audio -camera-back none -camera-back none -gpu host'
 alias pixel='QT_QPA_PLATFORM=xcb;emulator -avd android10 -gpu host -no-boot-anim -no-metrics -no-audio -camera-back none -camera-back none'
 alias nexus='QT_QPA_PLATFORM=xcb;emulator -avd nexus6a10 -gpu host -no-boot-anim -no-metrics -no-audio -camera-back none -camera-back none'
@@ -69,3 +70,12 @@ export EDITOR="nvim"
 # Created by `pipx` on 2024-09-15 16:54:48
 export PATH="$PATH:/home/rd/.local/bin"
 export PATH="$PATH:$HOME/go/bin"
+
+
+# print out tl.txt if it is not empty
+# if [ -s /home/rd/tl.txt ]; then
+#   echo "pending TL";
+# fi;
+# # create alias to view pending tasks
+alias pt="nvim ~/tl.txt"
+

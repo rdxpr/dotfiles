@@ -45,6 +45,9 @@ vim.api.nvim_set_keymap('v', '<A-k>', ':m .-2<CR>==', opts)
 vim.api.nvim_set_keymap('v', 'p', '"_dP', opts)
 
 -- Visual Block --
+-- replace text without losing current register value
+vim.keymap.set('x', '<leader>p', '"_dP', { noremap = true, silent = true })
+
 -- Move text up and down
 vim.api.nvim_set_keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
 vim.api.nvim_set_keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
@@ -145,7 +148,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
-
+-- Ensure termguicolors is enabled if not already
+vim.opt.termguicolors = true
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -160,7 +164,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
+  { 'norcalli/nvim-colorizer.lua', opts = {} },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -544,7 +548,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        tsserver = {},
+        ts_ls = {},
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -864,7 +868,6 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
@@ -897,5 +900,7 @@ require('lazy').setup({
   },
 })
 
+-- initialize nvim-colorizer
+require('colorizer').setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
