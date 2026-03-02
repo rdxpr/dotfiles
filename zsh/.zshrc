@@ -46,8 +46,8 @@ alias nexus6a7='QT_QPA_PLATFORM=xcb;emulator -avd nexus6a7 -gpu host -no-boot-an
 
 ########### NOTE: Exports ############
 export TERM=xterm-256color ssh
-export LIBVA_DRIVER_NAME=i965;
-export GTK_THEME="Adwaita-dark";
+# handling in env.conf hyprland now , no need to do it here
+#export GTK_THEME="Adwaita-dark";
 export NVM_DIR="$HOME/.nvm"
 export EDITOR="nvim"
 # android avd
@@ -69,6 +69,7 @@ export EDITOR="nvim"
 
 # Created by `pipx` on 2024-09-15 16:54:48
 export PATH="$PATH:/home/rd/.local/bin"
+export PATH="$PATH:/home/rd/sync/code/bash/inpath"
 export PATH="$PATH:$HOME/go/bin"
 
 
