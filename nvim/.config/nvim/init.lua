@@ -563,6 +563,8 @@ require('lazy').setup({
         -- ts_ls = {},
         --
         html = {},
+        -- java lsp
+        jdtls = {},
         emmet_ls = {
           filetypes = { 'html', 'css', 'javascriptreact', 'typescriptreact' },
         },

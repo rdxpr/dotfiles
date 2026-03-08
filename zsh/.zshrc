@@ -80,3 +80,6 @@ export PATH="$PATH:$HOME/go/bin"
 # # create alias to view pending tasks
 alias pt="nvim ~/tl.txt"
 
+
+# ignore certain files while autocompleting
+fignore=(.class .o .a .so .dylib .out .pyc .pyo .elc .swp .swo .DS_Store)
